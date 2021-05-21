@@ -12,7 +12,7 @@
   padding-top: 50px;
 }
 .carousel-item{
-  height: 700px;
+  height: 600px;
   align-content: center;
 
 }
@@ -22,6 +22,7 @@
 }
 #grafico{
   width: 80%;
+  height: 80%;
   margin-left: 10%;
   margin-right:  10%;
 }

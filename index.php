@@ -1,15 +1,38 @@
-<?php include 'menu.php';?>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Relatórios de Registros</title>
 
-<body onload="carregamento()">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+    integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+  <script src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="graficosObito.js"></script>
+  <script src="graficos.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+</head>
+
+<body class="container" onload="carregamento()">
       <script>
             function carregamento() {
-                  nascimentos();
-                  obitos();
-                  casamentos();
-                  graficosObito();
-                  graficosNasc();
-                  graficosCasamento();
+                  montaCard();
+                  APICasamento(); 
+                  APINascimento();
+                  APIObito(); 
             }
+            
       </script>
 
       <main>
@@ -44,7 +67,7 @@
                                                                   </div>
                                                             <div class="col-12" id="grafico">
                                                                   <h3>Registros de óbitos</h3>
-                                                                  <canvas id="graficosObitoBar"></canvas>
+                                                                  <canvas id="graficosObito"></canvas>
                                                             </div>
                                                       </div>
 
@@ -90,7 +113,7 @@
                                                                   </div>
                                                             <div class="col-12" id="grafico" data-bs-interval="30000">
                                                                   <h3>Registros de nascimentos</h3>
-                                                                  <canvas id="graficosNascBar"></canvas>
+                                                                  <canvas id="graficosNascimento"></canvas>
                                                             </div>
                                                       </div>
 
@@ -120,7 +143,7 @@
                                                                   </div>
                                                             <div class="col-12" id="grafico" data-bs-interval="30000">
                                                                   <h3>Registros de casamentos</h3>
-                                                                  <canvas id="graficosCasamentoBar"></canvas>
+                                                                  <canvas id="graficosCasamento"></canvas>
                                                             </div>
                                                       </div>
 

@@ -1,3 +1,10 @@
+function montaCard() {
+    nascimentos();
+    obitos();
+    casamentos();
+}
+
+
 var urlBase = 'https://registrocivilminas.org.br/relatorio/';
 
 function nascimentos() {
