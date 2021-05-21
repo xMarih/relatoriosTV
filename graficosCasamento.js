@@ -7,13 +7,14 @@ let url7 = urlBase + 'casamento/tres-anos-casamento-MG';
 let xhr7 = new XMLHttpRequest();
 xhr7.responseType = "json";
 xhr7.open('GET', url7, true);
-var casamentoMG;
+var casamentoMG; 
 
 xhr7.onreadystatechange = function () {
   if (xhr7.readyState == 4) {
     if (xhr7.status == 200) {
       var request7 = xhr7.response;
       casamentoMG = new Array(request7.length);
+
       for (i = 1; i < request7.length; i++) {
         casamentoMG[i] = parseFloat((request7[i]["quantidadeDeRegistro"]).replace('.', ''))
       }

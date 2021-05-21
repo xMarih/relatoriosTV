@@ -7,17 +7,17 @@ let url3 = urlBase + 'obito/tres-anos-geral-MG';
 let xhr3 = new XMLHttpRequest();
 xhr3.responseType = "json";
 xhr3.open('GET', url3, true);
-var mortesGeralMG;
+var mortesGeralMG = new Array(25);
 // Armazena o tamanho do vetor GERAL(25) na variavel 'tam'
-var tam; 
+// var tam; 
 
 xhr3.onreadystatechange = function () {
   if (xhr3.readyState == 4) {
     if (xhr3.status == 200) {
       var request3 = xhr3.response;
-      tam = request3.length;
-      mortesGeralMG = new Array(request3.length);
-      for (i = 1; i < request3.length; i++) {
+      // tam = 25;
+      
+      for (i = 1; i < 25; i++) {
         mortesGeralMG[i] = parseFloat((request3[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
     }
@@ -35,7 +35,7 @@ let xhr1 = new XMLHttpRequest();
 xhr1.responseType = "json";
 xhr1.open('GET', url1, true);
 var mortesCovidMG;
-
+mortesCovidMG = new Array(25);
 xhr1.onreadystatechange = function () {
   if (xhr1.readyState == 4) {
     if (xhr1.status == 200) {
@@ -43,7 +43,7 @@ xhr1.onreadystatechange = function () {
       // O request.legth para as URL relacionadas ao COVID era 15, para as URL de mortes gerias era 25
       // Para o grafico ficar correto, os dois vetores precisavam ter o memso tamanho.
       //Por isso no metodo anterior foi necessario armazenar o request.legth em uma variavel global ('')
-      mortesCovidMG = new Array(tam);
+      
 
       for (i = 1; i < request1.length; i++) {
         mortesCovidMG[i] = parseFloat((request1[i]["quantidadeDeRegistro"]).replace('.', ''))
@@ -57,28 +57,27 @@ xhr1.onreadystatechange = function () {
 }
 xhr1.send();
 
-
 //Obitos em Belo Horizonte
 var urlBase = 'https://registrocivilminas.org.br/relatorio/';
 let url4 = urlBase + 'obito/tres-anos-geral-BH';
 let xhr4 = new XMLHttpRequest();
 xhr4.responseType = "json";
 xhr4.open('GET', url4, true);
-var mortesGeralBH;
+var mortesGeralBH = new Array(25);
 // Armazena o tamanho do vetor GERAL(25) na variavel 'tam'
 // Mesmo com a variavel 'tam' sendo global, não foi possivel usa-la no metodo abaixo desse(erro: undefined)
 // Por isso armazenei do request.legth dessa url novamente em uma variavel global, 
 //para definir o vetor do metodo abaixo com o msmo tamanho do vetor alocado nesse metodo
-var tam2;
+// var tam2;
 
 xhr4.onreadystatechange = function () {
   if (xhr4.readyState == 4) {
     if (xhr4.status == 200) {
       var request4 = xhr4.response;
-      tam2 = request4.length;
-      mortesGeralBH = new Array(request4.length);
+      // tam2 = request4.length;
+      
 
-      for (i = 1; i < request4.length; i++) {
+      for (i = 1; i < 25; i++) {
         mortesGeralBH[i] = parseFloat((request4[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
     }
@@ -95,12 +94,12 @@ let xhr2 = new XMLHttpRequest();
 xhr2.responseType = "json";
 xhr2.open('GET', url2, true);
 var mortesCovidBH;
+mortesCovidBH = new Array(25);
 
 xhr2.onreadystatechange = function () {
   if (xhr2.readyState == 4) {
     if (xhr2.status == 200) {
       var request2 = xhr2.response;
-      mortesCovidBH = new Array(tam2);
       
       for (i = 1; i < request2.length; i++) {
         mortesCovidBH[i] = parseFloat((request2[i]["quantidadeDeRegistro"]).replace('.', ''))
@@ -137,8 +136,8 @@ function graficosObito() {
 
       
         //Armazena os meses em um vetor, eixo X do grafico
-        var vetMes = new Array(request.length);
-        for (i = 1; i < request.length; i++) {
+        var vetMes = new Array(25);
+        for (i = 1; i < 25; i++) {
           vetMes[i] = request[i]["mes"]
         }
 

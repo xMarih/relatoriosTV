@@ -12,15 +12,19 @@
   padding-top: 50px;
 }
 .carousel-item{
-  height: 500px;
+  height: 700px;
   align-content: center;
 
 }
 #logo{
-  width: 30%;
+  width: 15%;
   margin-bottom: 50px;
 }
-
+#grafico{
+  width: 80%;
+  margin-left: 10%;
+  margin-right:  10%;
+}
 
 
 /* ***************** */

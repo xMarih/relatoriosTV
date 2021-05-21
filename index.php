@@ -39,6 +39,9 @@
                                                 
                                                 <div class="carousel-inner">
                                                       <div class="carousel-item active" data-bs-interval="30000">
+                                                      <div class="row" id="logo">
+                                                                        <img src='logo.jpg'>
+                                                                  </div>
                                                             <div class="col-12" id="grafico">
                                                                   <h3>Registros de óbitos</h3>
                                                                   <canvas id="graficosObitoBar"></canvas>
@@ -82,6 +85,9 @@
                                                       </div>
 
                                                       <div class="carousel-item">
+                                                            <div class="row" id="logo">
+                                                                        <img src='logo.jpg'>
+                                                                  </div>
                                                             <div class="col-12" id="grafico" data-bs-interval="30000">
                                                                   <h3>Registros de nascimentos</h3>
                                                                   <canvas id="graficosNascBar"></canvas>
@@ -109,6 +115,9 @@
                                                       </div>
     
                                                       <div class="carousel-item">
+                                                            <div class="row" id="logo">
+                                                                        <img src='logo.jpg'>
+                                                                  </div>
                                                             <div class="col-12" id="grafico" data-bs-interval="30000">
                                                                   <h3>Registros de casamentos</h3>
                                                                   <canvas id="graficosCasamentoBar"></canvas>
