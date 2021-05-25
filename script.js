@@ -5,7 +5,7 @@ function montaCard() {
 }
 
 
-var urlBase = 'https://registrocivilminas.org.br/relatorio/';
+var urlBase = 'https://legado.registrocivilminas.org.br/relatorio/';
 
 function nascimentos() {
     cards('nascimento/tres-anos-nascimento-quantidade-BH', "Nascimentos em Belo Horizonte", "nascimentoBH", "#cardsNascimento2", "nascimentos");

@@ -1,5 +1,5 @@
 function APIObito() {
-  var urlBase = 'https://registrocivilminas.org.br/relatorio/';
+  var urlBase = 'https://legado.registrocivilminas.org.br/relatorio/';
   let url1 = urlBase + 'obito/tres-anos-geral-MG';
   let xhr1 = new XMLHttpRequest();
   xhr1.responseType = "json";

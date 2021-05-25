@@ -2,7 +2,7 @@
 // Temos um vetor para cada URL
 
 // Casamentos em Minas gerais
-var urlBase = 'https://registrocivilminas.org.br/relatorio/';
+var urlBase = 'https://legado.registrocivilminas.org.br/relatorio/';
 function APICasamento() {
   
   let url7 = urlBase + 'casamento/tres-anos-casamento-MG';
