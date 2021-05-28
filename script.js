@@ -1,12 +1,21 @@
-function montaCard() {
-    nascimentos();
-    obitos();
-    casamentos();
+// Loading
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 2000); // aumentei o tempo para ilustração
 }
 
+function showPage() {
+   document.getElementById("loader").style.display = "none";
+   document.getElementById("myDiv").style.display = "block";
+}
 
 var urlBase = 'https://legado.registrocivilminas.org.br/relatorio/';
+//Funções para os botões "saiba mais"
+//Para o obito
 
+////////////////////////////////////////////
+//Funções para a Nav-bar
 function nascimentos() {
     cards('nascimento/tres-anos-nascimento-quantidade-BH', "Nascimentos em Belo Horizonte", "nascimentoBH", "#cardsNascimento2", "nascimentos");
     cards('nascimento/tres-anos-nascimento-quantidade-MG', "Nascimentos em Minas Gerais", "nascimentoMG", "#cardsNascimento1", "nascimentos");
@@ -21,8 +30,6 @@ function casamentos() {
     cards('casamento/tres-anos-casamento-quantidade-BH', "Casamentos em Belo Horizonte", "casamentoBH", "#cardsCasamento2", "casamentos");
     cards('casamento/tres-anos-casamento-quantidade-MG', "Casamentos em Minas Gerais", "casamentoMG", "#cardsCasamento1", "casamentos");
 }
-
-
 ////////////////////////////////////////////
 
 function cards(endereço, nomePagina, click, cards, tipoRelatorio) {
@@ -44,16 +51,15 @@ function cards(endereço, nomePagina, click, cards, tipoRelatorio) {
 
 
                     cod_html +=
-                    `
-                    <div class="card" style="width: 32%; margin-left:1%; margin-bottom:1%; background-color: rgba(0, 140, 255, 0.336);">
-                        <div class="card-header" style=" margin:5px; background-color: rgba(0, 140, 255, 0.589);"><h5>Relatórios de ${tipoRelatorio}</h5></div>
-                        <div class="card-body">
-                            <h4 class="card-title">${nomePagina} em ${ano}</h4>
-                            <h2 class="card-text" style="text-align: right;">${quantidadeDeRegistro}</h2>
-
+                        `
+                        <div class="card" style="width: 32%; margin-left:1%; margin-bottom:1%">
+                            <div class="card-header">Relatórios de ${tipoRelatorio}</div>
+                            <div class="card-body">
+                                <h4 class="card-title">Total ${nomePagina} em ${ano}</h4>
+                                <h2 class="card-text" style="text-align: right;">${quantidadeDeRegistro}</h2>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
                 }
 
                 $(cards).html(cod_html);

@@ -1,36 +1,107 @@
-
-.cards{
-
-  background-color: rgb(255, 196, 0);
-  width: 30%;
-  color: #007cba;
-  background-color: #F2B33D;
-  
-    
-}
-#card{
-  padding-top: 50px;
-}
-.carousel-item{
-  height: 600px;
-  align-content: center;
-
-}
-#logo{
-  width: 15%;
-  margin-bottom: 50px;
-}
-#grafico{
-  width: 80%;
-  height: 80%;
-  margin-left: 10%;
-  margin-right:  10%;
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+}
 
 /* ***************** */
+.carousel-item{
+  height: 600px;
+}
+#graficoPie{
+  width: 45%;
+  margin-right: 27%;
+  margin-left: 27%;
+  margin-bottom: 5%;
+}
+#grafico{
+  width: 90%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+#cards{
+  margin-top: 10%;
+}
+#logo{
+  width: 20%;
+  margin: 1%;
+}
 
 
+
+
+nav > .nav.nav-tabs{
+
+  border-color: white;
+    color:#fff;
+
+    border-radius:5px;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border-color: white;
+    padding: 18px 25px;
+    color:#fff;
+    background:#007cba;
+    border-radius:5px;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #F2B33D ;
+}
 .tab-content{
   background: #fdfdfd;
     line-height: 25px;
@@ -39,3 +110,17 @@
     border-bottom:5px solid #F2B33D;
     padding:30px 25px;
 }
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border-color: white;
+    background: #F2B33D;
+    color:#fff;
+    border-radius:5px;
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(255, 246, 161);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(255, 230, 0);
+    box-shadow: 5px 7px 9px -4px rgb(255, 230, 0);
+
+}
+
