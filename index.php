@@ -6,10 +6,9 @@
       <script>
             function carregamentoGraficos() {
                   myFunction();
-                  graficosObito();
-                  graficosNasc();
-                  graficosCasamento();
+                  graficosObito()
 
+                  // cards
                   casamentos();
                   nascimentos();
                   obitos();

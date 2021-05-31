@@ -13,10 +13,11 @@ xhr7.onreadystatechange = function () {
   if (xhr7.readyState == 4) {
     if (xhr7.status == 200) {
       var request7 = xhr7.response;
-      vetCasamentoMG = new Array(request7.length);
-      for (i = 1; i < request7.length; i++) {
+      vetCasamentoMG = new Array(24);
+      for (i = 1; i < 24; i++) {
         vetCasamentoMG[i] = parseFloat((request7[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
+      graficosCasamento(vetCasamentoMG);
     }
     else {
       alert("Erro ao carregar!")
@@ -25,34 +26,34 @@ xhr7.onreadystatechange = function () {
 }
 xhr7.send();
 
-//Casamentos em Belo horizonte
-let url8 = urlBase + 'casamento/tres-anos-casamento-BH';
-let xhr8 = new XMLHttpRequest();
-xhr8.responseType = "json";
-xhr8.open('GET', url8, true);
-var vetCasamentoBH;
+// //Casamentos em Belo horizonte
+// let url8 = urlBase + 'casamento/tres-anos-casamento-BH';
+// let xhr8 = new XMLHttpRequest();
+// xhr8.responseType = "json";
+// xhr8.open('GET', url8, true);
+// var vetCasamentoBH;
 
-xhr8.onreadystatechange = function () {
-  if (xhr8.readyState == 4) {
-    if (xhr8.status == 200) {
-      var request8 = xhr8.response;
-      vetCasamentoBH = new Array(request8.length);
+// xhr8.onreadystatechange = function () {
+//   if (xhr8.readyState == 4) {
+//     if (xhr8.status == 200) {
+//       var request8 = xhr8.response;
+      
 
-      for (i = 1; i < request8.length; i++) {
-        vetCasamentoBH[i] = parseFloat((request8[i]["quantidadeDeRegistro"]).replace('.', ''))
-      }
-    }
-    else {
-      alert("Erro ao carregar!")
-    }
+//       for (i = 1; i < request8.length; i++) {
+//         vetCasamentoBH[i] = parseFloat((request8[i]["quantidadeDeRegistro"]).replace('.', ''))
+//       }
+//     }
+//     else {
+//       alert("Erro ao carregar!")
+//     }
     
-  }
-}
-xhr8.send();
+//   }
+// }
+// xhr8.send();
 
 //Monta os Graficos
-function graficosCasamento() {
-  let url = urlBase + 'casamento/tres-anos-casamento-MG';
+function graficosCasamento(vetCasamentoMG) {
+  let url = urlBase + 'casamento/tres-anos-casamento-BH';
   let xhr = new XMLHttpRequest();
   xhr.responseType = "json";
   xhr.open('GET', url, true);
@@ -65,9 +66,11 @@ function graficosCasamento() {
      
       
         //Armazena os meses em um vetor, eixo X do grafico
-        var vetMes = new Array(request.length);
-        for (i = 1; i < request.length; i++) {
-          vetMes[i] = request[i]["mes"]
+        var vetMes = new Array(24);
+        var vetCasamentoBH = new Array(24);
+        for (i = 1; i < 24; i++) {
+          vetMes[i] = request[i]["mes"];
+          vetCasamentoBH[i] = parseFloat((request[i]["quantidadeDeRegistro"]).replace('.', ''));
         }
 
      

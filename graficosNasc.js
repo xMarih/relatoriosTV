@@ -7,16 +7,16 @@ let url5 = urlBase + 'nascimento/tres-anos-nascimento-MG';
 let xhr5 = new XMLHttpRequest();
 xhr5.responseType = "json";
 xhr5.open('GET', url5, true);
-var nascimentoMG;
 
 xhr5.onreadystatechange = function () {
   if (xhr5.readyState == 4) {
     if (xhr5.status == 200) {
       var request1 = xhr5.response;
-      nascimentoMG = new Array(request1.length);
-      for (i = 1; i < request1.length; i++) {
-        nascimentoMG[i] = parseFloat((request1[i]["quantidadeDeRegistro"]).replace('.', ''))
+      var vetNascimentoMG = new Array(24);
+      for (i = 1; i < 24; i++) {
+        vetNascimentoMG[i] = parseFloat((request1[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
+      graficosNascimento(vetNascimentoMG); 
     }
     else {
       alert("Erro ao carregar!")
@@ -25,34 +25,34 @@ xhr5.onreadystatechange = function () {
 }
 xhr5.send();
 
-//Nascimentos em Belo Horizonte 
-let url6 = urlBase + 'nascimento/tres-anos-nascimento-BH';
-let xhr6 = new XMLHttpRequest();
-xhr6.responseType = "json";
-xhr6.open('GET', url6, true);
-var nascimentoBH;
+// //Nascimentos em Belo Horizonte 
+// let url6 = urlBase + 'nascimento/tres-anos-nascimento-BH';
+// let xhr6 = new XMLHttpRequest();
+// xhr6.responseType = "json";
+// xhr6.open('GET', url6, true);
+// var nascimentoBH;
 
-xhr6.onreadystatechange = function () {
-  if (xhr6.readyState == 4) {
-    if (xhr6.status == 200) {
-      var request2 = xhr6.response;
-      nascimentoBH = new Array(request2.length);
+// xhr6.onreadystatechange = function () {
+//   if (xhr6.readyState == 4) {
+//     if (xhr6.status == 200) {
+//       var request2 = xhr6.response;
+//       nascimentoBH = new Array(request2.length);
 
-      for (i = 1; i < request2.length; i++) {
-        nascimentoBH[i] = parseFloat((request2[i]["quantidadeDeRegistro"]).replace('.', ''))
-      }
-    }
-    else {
-      alert("Erro ao carregar!")
-    }
+//       for (i = 1; i < request2.length; i++) {
+//         nascimentoBH[i] = parseFloat((request2[i]["quantidadeDeRegistro"]).replace('.', ''))
+//       }
+//     }
+//     else {
+//       alert("Erro ao carregar!")
+//     }
     
-  }
-}
-xhr6.send();
+//   }
+// }
+// xhr6.send();
 
 //Monta os Graficos
-function graficosNasc() {
-  let url = urlBase + 'nascimento/tres-anos-nascimento-MG';
+function graficosNascimento(vetNascimentoMG) {
+  let url = urlBase + 'nascimento/tres-anos-nascimento-BH';
   let xhr = new XMLHttpRequest();
   xhr.responseType = "json";
   xhr.open('GET', url, true);
@@ -62,11 +62,14 @@ function graficosNasc() {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
         var request = xhr.response;
+  
 
         //Armazena os meses em um vetor, eixo X do grafico
-        var vetMes = new Array(request.length);
-        for (i = 1; i < request.length; i++) {
-          vetMes[i] = request[i]["mes"]
+        var vetMes = new Array(24);
+        var nascimentoBH = new Array(24);
+        for (i = 1; i < 24; i++) {
+          vetMes[i] = request[i]["mes"];
+          nascimentoBH[i] = parseFloat((request[i]["quantidadeDeRegistro"]).replace('.', ''));
         }
         var ctx = document.getElementById('graficosNascBar').getContext('2d');
         chart = new Chart(ctx, {
@@ -76,7 +79,7 @@ function graficosNasc() {
             datasets: [
               {
                 label: 'Números de Nascimentos em Minas gerais',
-                data: nascimentoMG.reverse(),
+                data: vetNascimentoMG.reverse(),
                 backgroundColor: [
                   '#F2B33D',
                 ],

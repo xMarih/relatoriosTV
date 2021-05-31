@@ -15,9 +15,8 @@ xhr3.onreadystatechange = function () {
   if (xhr3.readyState == 4) {
     if (xhr3.status == 200) {
       var request3 = xhr3.response;
-      // tam = request3.length;
-      mortesGeralMG = new Array(request3.length);
-      for (i = 1; i < request3.length; i++) {
+      mortesGeralMG = new Array(request3.length-1);
+      for (i = 1; i < request3.length-1; i++) {
         mortesGeralMG[i] = parseFloat((request3[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
     }
@@ -44,7 +43,7 @@ xhr1.onreadystatechange = function () {
       // Para o grafico ficar correto, os dois vetores precisavam ter o memso tamanho.
       //Por isso no metodo anterior foi necessario armazenar o request.legth em uma variavel global ('')
 
-      for (i = 1; i < request1.length; i++) {
+      for (i = 1; i < request1.length-1; i++) {
         mortesCovidMG[i] = parseFloat((request1[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
     }
@@ -72,10 +71,10 @@ xhr4.onreadystatechange = function () {
   if (xhr4.readyState == 4) {
     if (xhr4.status == 200) {
       var request4 = xhr4.response;
-      // tam2 = request4.length;
-      mortesGeralBH = new Array(request4.length);
+     
+      mortesGeralBH = new Array(request4.length-1);
 
-      for (i = 1; i < request4.length; i++) {
+      for (i = 1; i < request4.length-1; i++) {
         mortesGeralBH[i] = parseFloat((request4[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
     }
@@ -98,7 +97,7 @@ xhr2.onreadystatechange = function () {
     if (xhr2.status == 200) {
       var request2 = xhr2.response;
       
-      for (i = 1; i < request2.length; i++) {
+      for (i = 1; i < request2.length-1; i++) {
         mortesCovidBH[i] = parseFloat((request2[i]["quantidadeDeRegistro"]).replace('.', ''))
       }
     }
@@ -133,8 +132,8 @@ function graficosObito() {
 
       
         //Armazena os meses em um vetor, eixo X do grafico
-        var vetMes = new Array(request.length);
-        for (i = 1; i < request.length; i++) {
+        var vetMes = new Array(request.length-1);
+        for (i = 1; i < request.length-1; i++) {
           vetMes[i] = request[i]["mes"]
         }
 

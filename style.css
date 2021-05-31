@@ -67,6 +67,9 @@
 #cards{
   margin-top: 10%;
 }
+.card{
+  background-color: #f2b33d52;
+}
 #logo{
   width: 20%;
   margin: 1%;
@@ -106,8 +109,8 @@ nav > div a.nav-item.nav-link.active:after
   background: #fdfdfd;
     line-height: 25px;
     border: 1px solid #ddd;
-    border-top:5px solid #F2B33D;
-    border-bottom:5px solid #F2B33D;
+    border-top:5px solid #007cba;
+    border-bottom:5px solid #007cba;
     padding:30px 25px;
 }
 

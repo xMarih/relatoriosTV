@@ -52,11 +52,11 @@ function cards(endereço, nomePagina, click, cards, tipoRelatorio) {
 
                     cod_html +=
                         `
-                        <div class="card" style="width: 32%; margin-left:1%; margin-bottom:1%">
+                        <div class="card" style="width: 32%; margin-left:1%; margin-bottom:1%; background-color: #f2b33d52;">
                             <div class="card-header">Relatórios de ${tipoRelatorio}</div>
                             <div class="card-body">
                                 <h4 class="card-title">Total ${nomePagina} em ${ano}</h4>
-                                <h2 class="card-text" style="text-align: right;">${quantidadeDeRegistro}</h2>
+                                <h2 class="card-text" style="text-align: right; color:#007cba;">${quantidadeDeRegistro}</h2>
                             </div>
                         </div>
                     `;

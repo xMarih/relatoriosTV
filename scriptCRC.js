@@ -27,7 +27,6 @@ function cardsCRC( cards, descricao, tipoRelatorio, url1) {
                             <div class="card-body">
                                 <h4 class="card-title">Número de pedidos via CRC ${descricao}${nomeTipoRegistro}</h4>
                                 <h2 class="card-text" style="text-align: right;">${quantidadeDeRegistro}</h2>
-                                <button class="btn btn-primary">Saiba mais</button></a>
                             </div>
                         </div>
                     `;
